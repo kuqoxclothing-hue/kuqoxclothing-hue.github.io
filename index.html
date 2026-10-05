@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>kUQo X — Wear Your Identity</title>
+<meta name="description" content="kUQo X — Men's fashion. Premium style, simple price.">
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#fff;color:#111}
+header{background:#0b0b0b;color:#fff;padding:18px 6%;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:5}
+.logo{font-size:25px;font-weight:800;letter-spacing:2px}.cart{background:#fff;color:#111;border:0;border-radius:22px;padding:10px 16px;font-weight:700}
+.hero{background:#111;color:#fff;text-align:center;padding:75px 20px}.hero h1{font-size:46px;margin:0 0 12px}.hero p{font-size:18px;color:#ddd}.btn{display:inline-block;background:#fff;color:#111;padding:13px 22px;border-radius:5px;text-decoration:none;font-weight:700;margin-top:12px}
+section{padding:45px 6%}.title{text-align:center;font-size:28px;margin-bottom:28px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}.card{border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#fff}.pic{height:270px;background:#eee;display:flex;align-items:center;justify-content:center;color:#888}.card-body{padding:16px}.card h3{margin:0 0 8px}.price{font-weight:800;font-size:18px}.muted{color:#666;font-size:14px}.add{width:100%;margin-top:13px;padding:12px;border:0;background:#111;color:#fff;border-radius:6px;font-weight:700}
+.features{background:#f6f6f6}.feature{padding:20px;text-align:center}.order{max-width:600px;margin:auto}.order input,.order select,.order textarea{width:100%;padding:13px;margin:7px 0 12px;border:1px solid #ccc;border-radius:6px}.order button{width:100%;padding:14px;background:#111;color:#fff;border:0;border-radius:6px;font-weight:700}
+footer{background:#0b0b0b;color:#fff;text-align:center;padding:30px 15px}footer a{color:#fff;margin:0 8px}
+@media(max-width:600px){.hero h1{font-size:36px}section{padding:35px 5%}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">kUQo X</div>
+  <button class="cart" onclick="document.getElementById('order').scrollIntoView({behavior:'smooth'})">Order Now</button>
+</header>
+
+<div class="hero">
+  <h1>kUQo X</h1>
+  <p>Wear Your Identity.</p>
+  <a class="btn" href="#shop">Shop Collection</a>
+</div>
+
+<section id="shop">
+  <h2 class="title">Featured Collection</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="pic">PRODUCT PHOTO</div>
+      <div class="card-body">
+        <h3>Premium T-Shirt</h3><div class="price">৳999</div>
+        <p class="muted">Premium fabric · M / L / XL</p>
+        <button class="add" onclick="selectProduct('Premium T-Shirt')">Order This</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="pic">PRODUCT PHOTO</div>
+      <div class="card-body">
+        <h3>Oversized T-Shirt</h3><div class="price">৳1,099</div>
+        <p class="muted">Oversized fit · M / L / XL</p>
+        <button class="add" onclick="selectProduct('Oversized T-Shirt')">Order This</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="pic">PRODUCT PHOTO</div>
+      <div class="card-body">
+        <h3>Casual Pants</h3><div class="price">৳1,299</div>
+        <p class="muted">Regular fit · 30 / 32 / 34 / 36</p>
+        <button class="add" onclick="selectProduct('Casual Pants')">Order This</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="features">
+  <div class="grid">
+    <div class="feature"><h3>Premium Quality</h3><p>Quality-first men's fashion.</p></div>
+    <div class="feature"><h3>Cash on Delivery</h3><p>COD available across Bangladesh.</p></div>
+    <div class="feature"><h3>Easy Ordering</h3><p>Simple order form, quick confirmation.</p></div>
+  </div>
+</section>
+
+<section id="order">
+  <h2 class="title">Place Your Order</h2>
+  <form class="order" onsubmit="submitOrder(event)">
+    <label>Product</label>
+    <input id="product" name="product" placeholder="Select a product above" required>
+    <label>Name</label>
+    <input name="name" placeholder="Your name" required>
+    <label>Phone</label>
+    <input name="phone" placeholder="01XXXXXXXXX" required>
+    <label>Size</label>
+    <select name="size" required><option value="">Select size</option><option>M</option><option>L</option><option>XL</option><option>30</option><option>32</option><option>34</option><option>36</option></select>
+    <label>Full Address</label>
+    <textarea name="address" rows="4" placeholder="Full delivery address" required></textarea>
+    <button type="submit">Send Order</button>
+  </form>
+</section>
+
+<footer>
+  <div class="logo">kUQo X</div>
+  <p>Wear Your Identity.</p>
+  <p>
+    <a href="#" aria-label="Facebook">Facebook</a>
+    <a href="#" aria-label="TikTok">TikTok</a>
+    <a href="mailto:kuqoxclothing@gmail.com">Email</a>
+  </p>
+  <small>© 2026 kUQo X. All rights reserved.</small>
+</footer>
+
+<script>
+function selectProduct(name){document.getElementById('product').value=name;document.getElementById('order').scrollIntoView({behavior:'smooth'});}
+function submitOrder(e){
+  e.preventDefault();
+  const f=new FormData(e.target);
+  const msg=`kUQo X Order%0AProduct: ${f.get('product')}%0AName: ${f.get('name')}%0APhone: ${f.get('phone')}%0ASize: ${f.get('size')}%0AAddress: ${f.get('address')}`;
+  const phone='8801745872016';
+  window.open(`https://wa.me/${phone}?text=${msg}`,'_blank');
+}
+</script>
+</body>
+</html>
